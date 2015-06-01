@@ -1,0 +1,96 @@
+body {
+	background-color: #3F2860;
+	font-family: 'Lato';
+	text-align: center;
+}
+
+h1 {
+	color: #EF6D3B;
+	text-align: center;
+}
+
+h3 {
+	color: #90C5A9;
+	text-align: center;
+}
+
+.logintext {
+	color: #90C5A9;
+}
+
+.registertext {
+	color: #90C5A9;
+}
+
+.form {
+	width: 150px;
+	margin: 0 auto;
+}
+
+.forminput {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.output {
+	padding : 5%;
+}
+
+.imgtext {
+	width : 20%;
+	border : 1px solid white;
+	font-size : 20px;
+	margin : 0 auto;
+}
+label {
+	font-size: 20px;
+}
+a {
+	color : white;
+	display: block;
+	text-align: center;
+	margin : 0 auto;
+}
+
+fieldset {
+	border : 0;
+	width : 40%;
+	margin : 0 auto;
+	padding-top : 5%;
+}
+
+table {
+	border : 3px solid #E2DA99;
+	font-size : 25px;
+	font-family: 'Lato';
+	color: #EF6D3B;
+	text-align: center;
+	width : 60%;
+}
+tr:first-child {
+	font-size : 30px;
+	font-weight: bold;
+}
+th {
+	border : 3px solid #E2DA99;
+}
+td {
+	border : 3px solid #E2DA99;
+	font-size: 20px;
+	font-weight : bold;
+	font-family: 'Lato';
+	background-color: #90C5A9;
+	color: #EF6D3B;
+	text-align: center;
+	padding : 15px;
+}
+
+
+
+.error {
+	color : #7A9A95;
+}
+
+.errormsg {
+	color : #7A9A95;
+}

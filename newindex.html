@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <title>Login page</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="request.js"></script>
+    <script>
+    	function clearforms() {
+    		document.getElementById('login_form').reset();
+    	}
+    </script>
+  </head>
+<h1>Welcome To The Personal Personal Game Database Login Page</h1>
+<div class="info"><h3>Login or register an account to make a list of your favorite games!</h3></div>
+
+<div id="error"></div>
+<body onLoad="clearforms()" onUnload="clearforms()">
+	<div class="form">
+        <form id="login_form">
+            <div id="errormsg"></div></br>
+            <div class="logintext">Login</div>
+            <input name="username" type="text" placeholder="Username" required/><br/>
+            <input name="password" type="password" placeholder="Password" required/></br>
+            <button type="button" onclick="request_login()">Sign in</button>
+        </form>
+    </div>
+
+<div id="registerlink">
+    <br/><br/>
+    <a href="register.html">Click here to register an account</a>
+</div>
+
+</body>
+</html>
