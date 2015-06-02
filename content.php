@@ -26,6 +26,7 @@ if ($mysqli->connect_errno) {
   }
 
 if(!isset($_SESSION['Userlogin']) || $_SESSION['Userlogin'] == '') {
+	header( 'Location: newindex.html' ); /*Redirect to login page if not logged in*/ 
 	echo "The session login is not set";
 } else if (isset($_SESSION['Userlogin'])) {
 	echo "<h1>Welcome To Your Game Library Database " .$Userlogin. "!</<h1>";
