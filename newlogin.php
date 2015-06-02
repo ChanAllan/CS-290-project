@@ -14,13 +14,25 @@ if ($mysqli->connect_errno) {
 if (isset($_REQUEST['action'])) {
 	if (($_REQUEST['action']) == 'Userlogin') {
 		$Userlogin = $_REQUEST['username'];
-		$Userpassword = $_REQUEST['password'];
+		$Userpassword = SHA1($_REQUEST['password']);/*Added SHA1 hashing to password check*/
 		sign_in($Userlogin, $Userpassword);
 		
 	}
 	else if (($_REQUEST['action']) == 'Register_account') {
+		
 		$Userlogin = $_REQUEST['username'];
+		
+		if(strlen($Userlogin) < 6 ) { /*Checks to make sure username is at least 6 characters*/
+			echo 'Username needs to be atleast 6 characters long';
+			exit();
+		}
 		$Userpassword = $_REQUEST['password'];
+		if(strlen($Userpassword) < 8) {   /*Checks to make sure password is at least 8 characters*/
+			echo 'Password needs to be atleast 8 characters long';
+			exit();
+		}
+
+		$Userpassword = SHA1($_REQUEST['password']);/*Added SHA1 hasing to password compare*/
 		register_account($Userlogin, $Userpassword);
 
 	}
@@ -36,7 +48,7 @@ function sign_in ($Userlogin, $Userpassword) {
 	if(!($check = $mysqli->prepare("SELECT * from USERPASS WHERE username= ? AND password = ?"))) {
 		echo "cannot prepare check";
 	}
-	if(!($check->bind_param('ss', $Userlogin, $Userpassword))) {
+	if(!($check->bind_param('ss', $Userlogin, $Userpassword))) {  
 		echo "cannot bind param check";
 	}
 	if(!($check->execute())) {
@@ -46,8 +58,8 @@ function sign_in ($Userlogin, $Userpassword) {
 		echo "cannot get result check";
 	}
 	$userResult = $result->fetch_assoc();
-	if ($userResult['username'] === $Userlogin && $userResult['password'] === $Userpassword) {
-		
+	if ($userResult['username'] === $Userlogin && $userResult['password'] === $Userpassword) {  
+		 
 		$_SESSION['Userlogin'] = $Userlogin;
 
 		echo '<p><a href="content.php">Click here to access your personal game library</a></p>';
